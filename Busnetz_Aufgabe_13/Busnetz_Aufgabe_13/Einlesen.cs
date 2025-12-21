@@ -9,51 +9,42 @@ public class Einlesen
         Einlesen einlesen = new Einlesen();
         einlesen.Laden();
         einlesen.neuschreiben();
+       
     }
 
-    private Busnetz busnetz;
+    protected Busnetz busnetz;
     String json = File.ReadAllText("busnetz.json");
 
     public void Laden()
     {
-        busnetz = JsonSerializer.Deserialize<Busnetz>(json)
-                  ?? new Busnetz();
+        busnetz = JsonSerializer.Deserialize<Busnetz>(json) ?? new Busnetz();
         
-        Console.WriteLine($"Geladene Linien: {busnetz.Buslinien?.Count}");
+        
     }
     public void neuschreiben()
     {
         busnetz.Buslinien ??= new List<Buslinie>();
-        var Linie43 = busnetz.Buslinien.FirstOrDefault(b => b.LinienNummer == "43");
-        if (Linie43 == null)
+        var Linie45 = busnetz.Buslinien.FirstOrDefault(b => b.LinienNummer == "45");
+        if (Linie45 == null)
         {
-            Linie43 = new Buslinie("43","Bernd Wendel");
-            Linie43.Haltestellen.Add(new Haltestelle("Wien Matzleinsdorferplatz", "9:51"));
-            busnetz.Buslinien.Add(Linie43);
+            Linie45 = new Buslinie("45","Emil Sack");
+            Linie45.Haltestellen.Add(new Haltestelle("Himberg Hauptplatz", "6:45"));
+            
+            busnetz.Buslinien.Add(Linie45);
+            
         }
-        
         else
         {
-            Linie43.Fahrer = "Bernd Wendel";
-            Linie43.Haltestellen.Add(new Haltestelle("Bernd Wendel", "9:51"));
+            Linie45.Fahrer = "Emil Sack";
+            Linie45.Haltestellen.Add(new Haltestelle("Himberg Hauptplatz", "6:45"));
+            
         }
-        
-        var options = new JsonSerializerOptions
-        {
-            PropertyNameCaseInsensitive = true
-        };
-        Console.WriteLine($"Linien im Busnetz vor dem Speichern: {busnetz.Buslinien?.Count}");
-        foreach (var l in busnetz.Buslinien)
-        {
-            Console.WriteLine($"Linie {l.LinienNummer}, Fahrer {l.Fahrer}, Haltestellen: {l.Haltestellen?.Count}");
-        }
-        
 
-        string neujson = JsonSerializer.Serialize<Busnetz>(busnetz, options);
-        File.WriteAllText("busnetz_neu.json", neujson);
-        Console.WriteLine(Path.GetFullPath("busnetz_neu.json"));
+        var options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
+        
+        var newjson = JsonSerializer.Serialize(busnetz,options);
+        File.WriteAllText("busnetz_neu.json", newjson);
 
-        File.WriteAllText("busnetz_neu.json", neujson);
     }
     
     
@@ -73,7 +64,16 @@ public class Einlesen
 
         
     }
+    protected void SetBusnetz(Busnetz bn) => busnetz = bn;
+    public List<Haltestelle> GetHaltestellenVonFahrer(string fahrerName)
+    {
+        if (busnetz?.Buslinien == null)
+            return new List<Haltestelle>();  
     
-    
+        return busnetz.Buslinien
+            .Where(l => l.Fahrer == fahrerName)      
+            .SelectMany(l => l.Haltestellen)       
+            .ToList();                              
+    }
 
 }

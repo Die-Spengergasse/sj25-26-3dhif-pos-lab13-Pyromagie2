@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Busnetz_Aufgabe_13", "Busnetz_Aufgabe_13\Busnetz_Aufgabe_13.csproj", "{3164E51F-404E-41CA-A23D-929E4A639FD2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusnetzTest", "BusnetzTest\BusnetzTest.csproj", "{7FD41A9B-834D-4A3C-BAAD-CDF78E8E87F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{3164E51F-404E-41CA-A23D-929E4A639FD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3164E51F-404E-41CA-A23D-929E4A639FD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3164E51F-404E-41CA-A23D-929E4A639FD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FD41A9B-834D-4A3C-BAAD-CDF78E8E87F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FD41A9B-834D-4A3C-BAAD-CDF78E8E87F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FD41A9B-834D-4A3C-BAAD-CDF78E8E87F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FD41A9B-834D-4A3C-BAAD-CDF78E8E87F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
