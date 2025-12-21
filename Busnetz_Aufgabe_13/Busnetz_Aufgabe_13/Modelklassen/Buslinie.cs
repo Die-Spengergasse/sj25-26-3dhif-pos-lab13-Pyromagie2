@@ -4,8 +4,10 @@ public class Buslinie
 {
     public String LinienNummer  { get; set; }
     public String Fahrer { get; set; }
-    public List<Haltestelle> Haltestellen { get; set; }
+    public List<Haltestelle> Haltestellen { get; set; } = new();
 
+    public Buslinie(){}
+    
     public Buslinie(String linienNummer, String fahrer)
     {
         if (String.IsNullOrEmpty(linienNummer))

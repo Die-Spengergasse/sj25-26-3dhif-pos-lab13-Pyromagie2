@@ -2,5 +2,5 @@
 
 public class Busnetz
 {
-    public List<Buslinie> Buslinien { get; set; }
+    public List<Buslinie> Buslinien { get; set; } = new();
 }

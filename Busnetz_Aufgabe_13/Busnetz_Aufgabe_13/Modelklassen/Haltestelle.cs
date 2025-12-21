@@ -5,6 +5,8 @@ public class Haltestelle
     public String Name { get; set; }
     public String Zeit { get; set; }
 
+    public Haltestelle(){} 
+    
     public Haltestelle(String name, String zeit)
     {
         if (string.IsNullOrEmpty(name))
