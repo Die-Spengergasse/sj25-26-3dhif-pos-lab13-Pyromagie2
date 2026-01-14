@@ -9,7 +9,7 @@ public class Einlesen
         Einlesen einlesen = new Einlesen();
         einlesen.Laden();
         einlesen.neuschreiben();
-       
+       einlesen.ausgeben();
     }
 
     protected Busnetz busnetz;

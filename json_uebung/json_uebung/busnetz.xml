@@ -1,0 +1,9 @@
+<Busnetz>
+    <Buslinien>
+        <Buslinie>
+            <LinienNummer>42</LinienNummer>
+            <Fahrer>Herr Müller</Fahrer>
+            ...
+        </Buslinie>
+    </Buslinien>
+</Busnetz>
